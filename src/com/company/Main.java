@@ -17,7 +17,9 @@ public class Main {
         String text = args[0];              //Records text input
         String pattern = args[1];           //Records pattern to match
         int matchIndex = -1;
+        long startTime = System.nanoTime();
         matchIndex = stringMatch(text, pattern);
+        long endTime = System.nanoTime();
         if(matchIndex >= 0) {               //If there is a match
             System.out.println("\nThe index of the matching substring is ");
             System.out.println(matchIndex);
@@ -26,6 +28,8 @@ public class Main {
             System.out.println("\nNo match to pattern ");
             System.out.println(pattern);
         }
+        System.out.println("\nElapsed time: ");
+        System.out.println((endTime - startTime)/1000000);
     }
 
     //stringMatch iterates through the text, comparing each element to the
