@@ -14,7 +14,18 @@ package com.company;
 public class Main {
 
     public static void main(String[] args){
-
+        String text = args[0];              //Records text input
+        String pattern = args[1];           //Records pattern to match
+        int matchIndex = -1;
+        matchIndex = stringMatch(text, pattern);
+        if(matchIndex >= 0) {               //If there is a match
+            System.out.println("\nThe index of the matching substring is ");
+            System.out.println(matchIndex);
+        }
+        else{                               //If there is no match
+            System.out.println("\nNo match to pattern ");
+            System.out.println(pattern);
+        }
     }
 
     //stringMatch iterates through the text, comparing each element to the
@@ -26,6 +37,7 @@ public class Main {
     //substring of the text, the program reports a success and returns the
     //starting index of the matching substring in the text.
     public static int stringMatch(String text, String pattern){
+
         for (int i = 0; i < n; i++){
 
         }
