@@ -49,8 +49,11 @@ public class Main {
 
     //visualize prints a formatted representation of the text with the
     //pattern below, lined up with the current indices of comparison.
-    public void visualize(int index, String text, String pattern){
-
+    public void visualize(int index, String pattern){
+        for (int i = 0; i < index; i++){
+            System.out.println(" ");
+        }
+        System.out.println(pattern);
     }
 
     //Ensures that the pattern is not larger than the text
