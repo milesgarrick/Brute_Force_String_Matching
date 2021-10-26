@@ -17,7 +17,6 @@ public class Main {
     public static void main(String[] args){
         String text = args[0];              //Records text input
         String pattern = args[1];           //Records pattern to match
-        int matchIndex = -1;
         long startTime = System.nanoTime();
         /*Scanner scan = new Scanner(System.in);
 
@@ -25,18 +24,19 @@ public class Main {
         text = 
         */
 
-        matchIndex = stringMatch(text, pattern);
+        int matchIndex = stringMatch(text, pattern);
         long endTime = System.nanoTime();
         if(matchIndex >= 0) {               //If there is a match
-            System.out.println("\nThe index of the matching substring is ");
+            System.out.print("\nThe index of the matching substring is ");
             System.out.println(matchIndex);
         }
         else{                               //If there is no match
             System.out.println("\nNo match to pattern ");
             System.out.println(pattern);
         }
-        System.out.println("\nElapsed time: ");
-        System.out.println((endTime - startTime)/1000000);
+        System.out.print("\nElapsed time: ");
+        System.out.print((endTime - startTime)/1000000);
+        System.out.println(" ms");
     }
 
     //stringMatch iterates through the text, comparing each element to the
@@ -49,7 +49,7 @@ public class Main {
     //starting index of the matching substring in the text.
     public static int stringMatch(String text, String pattern){
         if(text.length() < pattern.length()){
-            System.out.println("Input length must be longer than pattern.")
+            System.out.println("Input length must be longer than pattern.");
             return -1;
         }
         int patternLength = pattern.length();
@@ -57,22 +57,28 @@ public class Main {
         int max = textLength - patternLength;
 
         System.out.println(text);
-        for (int i = 0; i < max; i++){
+        for (int i = 0; i <= max; i++){
+            visualize(i, pattern);
             int j = 0;
-            while (j<patternLength && text.charAt(j)==pattern.charAt(i+j)){
-                j++;
+            while (j<patternLength && pattern.charAt(j)==text.charAt(i+j)){
+                ++j;
             }
-            if (j = patternLength)
+            if (j == patternLength) {
+                System.out.println("==================");
+                System.out.println("Final Comparison:");
+                System.out.println(text);
+                visualize(i, pattern);
                 return i;
+            }
         }
         return -1;
     }
 
     //visualize prints a formatted representation of the text with the
     //pattern below, lined up with the current indices of comparison.
-    public void visualize(int index, String pattern){
-        for (int i = 0; i < index; i++){
-            System.out.println(" ");
+    public static void visualize(int i, String pattern){
+        for (int j = 0; j < i; j++){
+            System.out.print(" ");
         }
         System.out.println(pattern);
     }
