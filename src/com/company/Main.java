@@ -10,6 +10,7 @@
 //matches the pattern.
 
 package com.company;
+//import java.util.Scanner;
 
 public class Main {
 
@@ -18,6 +19,12 @@ public class Main {
         String pattern = args[1];           //Records pattern to match
         int matchIndex = -1;
         long startTime = System.nanoTime();
+        /*Scanner scan = new Scanner(System.in);
+
+        System.out.println("Enter your text input: ");
+        text = 
+        */
+
         matchIndex = stringMatch(text, pattern);
         long endTime = System.nanoTime();
         if(matchIndex >= 0) {               //If there is a match
@@ -41,10 +48,23 @@ public class Main {
     //substring of the text, the program reports a success and returns the
     //starting index of the matching substring in the text.
     public static int stringMatch(String text, String pattern){
-
-        for (int i = 0; i < n; i++){
-
+        if(text.length() < pattern.length()){
+            throw new InputLengthException("The input string must be longer than the pattern to be matched.")
         }
+        int patternLength = pattern.length();
+        int textLength = text.length();
+        int max = textLength - patternLength;
+
+        System.out.println(text);
+        for (int i = 0; i < max; i++){
+            int j = 0;
+            while (j<patternLength && text.charAt(j)==pattern.charAt(i+j)){
+                j++;
+            }
+            if (j = patternLength)
+                return i;
+        }
+        return -1;
     }
 
     //visualize prints a formatted representation of the text with the
@@ -52,7 +72,4 @@ public class Main {
     public void visualize(int index, String text, String pattern){
 
     }
-
-    //Ensures that the pattern is not larger than the text
-    public boolean testForSize()
 }
