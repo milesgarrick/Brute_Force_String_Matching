@@ -49,7 +49,8 @@ public class Main {
     //starting index of the matching substring in the text.
     public static int stringMatch(String text, String pattern){
         if(text.length() < pattern.length()){
-            throw new InputLengthException("The input string must be longer than the pattern to be matched.")
+            System.out.println("Input length must be longer than pattern.")
+            return -1;
         }
         int patternLength = pattern.length();
         int textLength = text.length();
