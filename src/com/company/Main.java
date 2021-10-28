@@ -10,20 +10,31 @@
 //matches the pattern.
 
 package com.company;
+import java.util.Random;
+import java.lang.StringBuilder;
 //import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args){
-        String text = args[0];              //Records text input
-        String pattern = args[1];           //Records pattern to match
+        //Code block adapted from https://www.baeldung.com/java-random-string for generating a random string
+        int leftLimit = 41;
+        int rightLimit = 122;
+        int targetStringLength = 10000;
+        Random random = new Random();
+        StringBuilder buffer = new StringBuilder(targetStringLength);
+
+        for (int i = 0; i < targetStringLength; i++) {
+            int randomLimitedInt = leftLimit + (int) (random.nextFloat() * (rightLimit - leftLimit + 1));
+            buffer.append((char) randomLimitedInt);
+        }
+        String text = buffer.toString();
+        //End of code from https://www.baeldung.com/java-random-string
+
+        //String text = args[0];              //Records text input
+        String pattern = "FA";
+        //String pattern = args[1];           //Records pattern to match
         long startTime = System.nanoTime();
-        /*Scanner scan = new Scanner(System.in);
-
-        System.out.println("Enter your text input: ");
-        text = 
-        */
-
         int matchIndex = stringMatch(text, pattern);
         long endTime = System.nanoTime();
         if(matchIndex >= 0) {               //If there is a match
@@ -56,9 +67,9 @@ public class Main {
         int textLength = text.length();
         int max = textLength - patternLength;
 
-        System.out.println(text);
+        //System.out.println(text);
         for (int i = 0; i <= max; i++){
-            visualize(i, pattern);
+            //visualize(i, pattern);
             int j = 0;
             while (j<patternLength && pattern.charAt(j)==text.charAt(i+j)){
                 ++j;
