@@ -1,4 +1,4 @@
-//Miles Johnson 2021
+//Miles Johnson, Daniel Trang 2021
 //CS 350
 //Portland State University
 
@@ -50,9 +50,9 @@ public class Main {
             long elapsedTime = stringMatch(text, pattern);
             sum += elapsedTime;
             ++counter;
-        } while (counter <= 9);
+        } while (counter <= 99);
         System.out.print("Average time: ");
-        System.out.print(sum/10);
+        System.out.print(sum/100);
         System.out.println(" microseconds");
         /*
         if(elapsedTime >= 0) {               //If there is a match
