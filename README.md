@@ -7,5 +7,6 @@ This program is a proof of concept for brute force string matching in the Java l
 
 ## How to run
 Clone repo.  Compile and run with the following:
+
     javac Main.java
     java Main
