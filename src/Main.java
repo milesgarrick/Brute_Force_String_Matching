@@ -2,19 +2,15 @@
 //CS 350
 //Portland State University
 
-//This program takes in "text" input and a "pattern" as command line arguments.
-//Both arguments are treated as strings.  A brute-force algorithm for matching
-//the pattern to the text is executed.  The program prints a visualization of
-//the text compared to the pattern on each iteration of the algorithm, then
-//returns the index of the first element in the substring of the text that
-//matches the pattern.
+//This program generates a random "text" and a random "pattern" string.
+//A brute-force algori the pattern to the text is executed.
+//It outputs the length of each string being matched on each iteration,
+//then the average time taken to find a matching substring.
 
-package com.company;
 import java.sql.SQLOutput;
 import java.util.Random;
 import java.lang.StringBuilder;
 import java.util.concurrent.ThreadLocalRandom;
-//import java.util.Scanner;
 
 public class Main {
 
@@ -92,28 +88,34 @@ public class Main {
                 ++j;
             }
             if (j == patternLength) {
-                /*System.out.println("==================");
+                /*
+		long endTime = System.nanoTime();
+                System.out.println("==================");
                 System.out.println("Final Comparison:");
                 System.out.println(text);
                 visualize(i, pattern);
                 System.out.print("\nElapsed time: ");
                 System.out.print((endTime - startTime));//1000000);
                 System.out.println(" ms");
-                 */
+		*/
+                
                 long endTime = System.nanoTime();
-                /*
+                
+		/*
                 System.out.print("\nElapsed time: ");
                 System.out.print((endTime - startTime)/1000);
                 System.out.println(" microseconds");
-                */
+		*/
+                
                 return (endTime - startTime)/1000;
             }
             else{
-                /*
+		/*
                 System.out.print("\nElapsed time: ");
                 System.out.print((endTime - startTime));//1000);
                 System.out.println(" ns");
-                 */
+		*/
+                
             }
         }
         long endTime = System.nanoTime();
